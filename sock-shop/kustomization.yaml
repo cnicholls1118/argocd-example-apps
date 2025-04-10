@@ -27,3 +27,6 @@ resources:
 - base/user-db-svc.yaml
 - base/user-dep.yaml
 - base/user-svc.yaml
+images:
+  - name: sock-shop
+    newTag: v1.1.0
