@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: carts
-        image: weaveworksdemos/carts:broken-tags
+        image: weaveworksdemos/carts:0.8.4
         env:
          - name: ZIPKIN
            value: zipkin.jaeger.svc.cluster.local
