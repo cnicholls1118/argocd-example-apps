@@ -1,0 +1,80 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: front-end-rollout
+  namespace: sock-shop
+spec:
+  replicas: 5
+  strategy:
+    blueGreen:
+      activeService: front-end-active
+      previewService: front-end-preview
+      autoPromotionEnabled: false
+  selector:
+    matchLabels:
+      app: front-end
+  template:
+    metadata:
+      labels:
+        app: front-end
+    spec:
+      containers:
+        - name: front-end
+          image: microservices-demo/front-end:v2
+          ports:
+            - containerPort: 80
+          env:
+            - name: SESSION_SECRET
+              value: "your-session-secret"
+            - name: REDIS_HOST
+              value: "redis"
+            - name: CATALOGUE_HOST
+              value: "catalogue"
+            - name: USER_HOST
+              value: "user"
+            - name: ORDER_HOST
+              value: "order"
+            - name: PAYMENT_HOST
+              value: "payment"
+            - name: SHIPPING_HOST
+              value: "shipping"
+            - name: CURRENCY_HOST
+              value: "currency"
+            - name: CATALOGUE_SERVICE_HOST
+              value: "catalogue"
+            - name: CATALOGUE_SERVICE_PORT
+              value: "80"
+            - name: USER_SERVICE_HOST
+              value: "user"
+            - name: USER_SERVICE_PORT
+              value: "80"
+            - name: ORDER_SERVICE_HOST
+              value: "order"
+            - name: ORDER_SERVICE_PORT
+              value: "80"
+            - name: PAYMENT_SERVICE_HOST
+              value: "payment"
+            - name: PAYMENT_SERVICE_PORT
+              value: "80"
+            - name: SHIPPING_SERVICE_HOST
+              value: "shipping"
+            - name: SHIPPING_SERVICE_PORT
+              value: "80"
+            - name: CURRENCY_SERVICE_HOST
+              value: "currency"
+            - name: CURRENCY_SERVICE_PORT
+              value: "80"
+            - name: CART_SERVICE_HOST
+              value: "cart"
+            - name: CART_SERVICE_PORT
+              value: "80"
+            - name: FRONT_END_SERVICE_HOST
+              value: "front-end"
+            - name: FRONT_END_SERVICE_PORT
+              value: "80"
+            - name: SESSION_SERVICE_HOST
+              value: "session"
+            - name: SESSION_SERVICE_PORT
+              value: "80"
+            - name: SESSION_SERVICE_PROTOCOL
+              value: "http"
