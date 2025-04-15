@@ -6,7 +6,7 @@ metadata:
   labels:
     app: front-end
 spec:
-  replicas: 5 # Mess with this later
+  replicas: 2 # Mess with this later
   selector:
     matchLabels:
       app: front-end
