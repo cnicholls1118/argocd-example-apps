@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: front-end-preview
+  namespace: sock-shop
+spec:
+  selector:
+    app: front-end
+  ports:
+    - port: 80
+      targetPort: 80
