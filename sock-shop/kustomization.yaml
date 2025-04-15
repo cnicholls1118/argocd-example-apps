@@ -7,11 +7,11 @@ resources:
 - base/catalogue-db-svc.yaml
 - base/catalogue-dep.yaml
 - base/catalogue-svc.yaml
-#- base/front-end-dep.yaml
-- base/front-end-rollout.yaml
-- base/front-end-active.yaml
-- base/front-end-preview.yaml
-#- base/front-end-svc.yaml
+- base/front-end-dep.yaml
+#- base/front-end-rollout.yaml
+#- base/front-end-active.yaml
+#- base/front-end-preview.yaml
+- base/front-end-svc.yaml
 - base/orders-db-dep.yaml
 - base/orders-db-svc.yaml
 - base/orders-dep.yaml
