@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: front-end
-          image: microservices-demo/front-end:latest
+          image: microservices-demo/front-end:0.1.7
           ports:
             - containerPort: 80
           env:
